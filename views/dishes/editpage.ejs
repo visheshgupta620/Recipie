@@ -1,0 +1,50 @@
+<% layout('/layout/boilerplate') -%>
+
+  <div class="container px-5 py-4">
+    <form class="row g-3 needs-validation" novalidate action="/dishes/<%= item._id %>?_method=patch" method="post">
+      <div class="col-md-3">
+        <label for="name" class="form-label">Dish Name :</label>
+        <input type="text" name="name" class="form-control" id="name" value="<%= item.name %>">
+      </div>
+      <div class="col-md-3">
+        <label for="cuisine" class="form-label">Cuisine :</label>
+        <input type="text" name="type" class="form-control" id="cuisine" value="<%= item.type %>">
+      </div>
+      <div class="col-12">
+        <div class="col-6">
+          <label for="image" class="form-label">Image URL :</label>
+          <input type="text" name="image" class="form-control" id="image" placeholder="https://"
+            value="<%= item.image %>">
+        </div>
+        <br>
+        <div class="d-flex gap-3">
+          <div class="col-3">
+            <label for="time" class="form-label">Time :</label>
+            <input type="number" class="form-control" name="time" id="time"
+              placeholder="Preparation Time ( in minutes ! ) " value="<%= item.time %>">
+          </div>
+          <div>
+            <label for="diet" class="form-label">Diet :</label>
+            <select class="form-control commonclass" name="diet" id="diet">
+              <option value="<%= item.diet %>"><%= item.diet %>   ▾</option>
+              <% if (item.diet==='veg') { %>
+                <option value="nonveg">Non-Veg</option>
+              <% } else{ %>
+              <option value="veg">Veg</option>
+              <% } %>
+              
+            </select>
+          </div>
+        </div>
+        <br>
+        <div style="width: 50%;">
+          <label for="steps" class="form-label">Recipie :</label>
+          <textarea class="form-control" name="steps" id="steps" placeholder="Step-by-Step Explanation"
+            rows="7"><%= item.steps %></textarea>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>

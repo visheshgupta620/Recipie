@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0  ;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    margin-top: auto;
+}
+
+@media screen and (max-width:600px){
+    .carsolimg{
+        height: 300px;
+    }
+}
+
+
+.yoyo:hover{
+    opacity: 0.6;
+}
+
+.yoy:hover{
+    opacity: 0.9;
+}

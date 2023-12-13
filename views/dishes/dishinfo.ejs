@@ -1,0 +1,110 @@
+<% layout('/layout/boilerplate') -%>
+
+    <%- include('../partials/flash') %>
+
+
+        <div class="">
+            <!-- <div class="d-flex gap-5 "> -->
+            <div class="row">
+                <div class="col">
+                    <br>
+                    <div class="card m-auto" style="width: 29rem;">
+                        <img src="<%= item.image %>" class="card-img-top" alt="...">
+                        <div class="card-body bg-success-subtle">
+                            <h3 class="card-text text-center ">
+                                <%= item.name%> (<%= item.type %>)
+                            </h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="m-auto text-center" style="width: 29rem;">
+                    <% if(currentuser && currentuser.role==='creator' ){ %>
+                            <form class="d-inline" action="/dishes/<%- item._id %>?_method=delete" method="post">
+                                <button class="btn btn-danger border border-black" style="height: 50px; width: 120px;" type="submit">Delete</button>
+                            </form>
+                            <a class="btn btn-warning text-white border border-black" style="height: 50px; width: 120px;" href="/dishes/<%- item._id %>/edit"
+                                role="button"><p class="mt-1">Edit</p></a>
+                            <br><br>
+                         <% } %>
+                    </div>
+
+                            <div class="card m-auto" style="width: 29rem;  background-color: beige;">
+                                <div class="card-body text-center">
+                                    Time Required : <strong>
+                                        <%= item.time %> mins
+                                    </strong>
+                                </div>
+                            </div>
+
+
+                </div>
+
+                <div class="col">
+
+                    <!-- <h2 class="text-center" style="margin-top: 10px;">Preparation :</h2> -->
+                    <br>
+                    <div class="card m-auto" style="width: 29rem;">
+                        <div class="card-header" style="background-color: beige;">
+                            Preparation:
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <% for(let step of stepsinvolved) { %>
+                                <li class="list-group-item bg-success-subtle" style="font-weight: 500;">
+                                    <%= step %>
+                                </li>
+                                <% } %>
+                        </ul>
+                    </div>
+                    <br>
+
+                    <form action="/dish/reviews/<%= item._id %>" method="post"
+                        class="bg-success-subtle px-4 py-3 m-auto" style=" border-radius: 8px; width: 29rem;">
+
+                        <fieldset class="starability-basic">
+                            <input required type="radio" id="no-rate" class="input-no-rate" name="rating" value="0"
+                                checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="rating" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="rating" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="rating" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="rating" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="rating" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                        <!-- <br> -->
+                        <textarea name="comments" id="" cols="50" rows="4" style="padding: 10px; background-color: beige;"
+                            placeholder="Leave your comments"></textarea>
+                        <br>
+                        <button class="btn btn-success border border-black" style="height: 35px; width: 90px;" type="submit">Submit</button>
+                        <a class="btn btn-primary text-white border border-black" style="height: 35px; width: 150px;" href="#damn"
+                            role="button">Read All Reviews</a>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="d-flex gap-4 flex-wrap">
+            <% for(let review of item.reviews) { %>
+                <div id="damn" class="card bg-success-subtle" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p class="starability-result" data-rating="<%= review.rating %>">
+                            </p>
+                        </h5>
+                        <p class="card-text" style="font-size: x-large;">
+                            <%= review.comments %>
+                        </p>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+
+        <br>

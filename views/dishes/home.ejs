@@ -1,0 +1,59 @@
+<!-- <h1 style="text-align: center; background-color: aquamarine;">CookingMadeEasy</h1>
+<br>
+<h2 style="text-align: center; background-color: rgba(127, 255, 212, 0.305);">One Stop For All Your Cooking Problems</h2>
+<br>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="height: 100vh; width: 100vw; position: relative;">
+    <img style="opacity: 0.8;" height="100%" width="100%"
+      src="https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80"
+      alt="">
+  </div>
+
+  <div class="bag d-flex flex-column align-items-center justify-content-center gap-5 w-100">
+    <div>
+      <a class="links" href="/dishes">Home</a>
+      <a class="links" href="/dishes#yay">Recipies</a>
+      <% if(!currentuser){ %>
+      <a class="links" href="/login">Login</a>
+      <a class="links" href="/register">Register</a>
+      <% } else{ %>
+      <a class="links" href="/logout">Logout</a>
+      <% } %>
+    </div>
+
+    <div class="mt-5">
+      <h1 style="font-size: 55px;">CookingMadeEasy</h1>
+    </div>
+
+    <div class="lines">
+      <p style="font-size: 21px; text-align: center;">One step solution for all your cooking problems. <br>
+        Adding new recipies everyday. <br>
+        Feel free to add your own recipies.
+      </p>
+    </div>
+  </div>
+
+  <footer class="down d-flex flex-column align-items-center justify-content-center w-100">
+    <p style="line-height: 0;">&copy;CookingMadeEasy</p>
+    since 2023
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

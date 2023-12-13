@@ -1,0 +1,106 @@
+<% layout('/layout/boilerplate') -%>
+  <!-- <br> -->
+
+  <%- include('../partials/flash') %>
+
+    <!-- <br> -->
+    <div class="design" style="text-align: center;">
+      <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <br>
+    <%- include('../partials/carasol') %>
+
+
+      <div id="yay" class="container d-flex gap-5 flex-wrap align-items-center justify-content-center">
+        <% for( let dish of dishes ) { %>
+          <div class="card" style="width: 20rem; background-color: beige;">
+            <img src="<%-dish.image%>" class="card-img-top yoyo" height="200px" alt="...">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title"><%-dish.name%></h5>
+                <% if (dish.diet==='veg' ) { %>
+                  <img height="20px" width="20px"
+                    src="https://icon2.cleanpng.com/20180601/ae/kisspng-vegetarian-cuisine-biryani-indian-cuisine-vegetabl-vegetarian-5b11c2357677b7.0724399215278904854853.jpg"
+                    alt="">
+                  <% } else{ %>
+                    <img height="20px" width="20px"
+                      src="https://w7.pngwing.com/pngs/344/498/png-transparent-computer-icons-computer-software-light-non-veg-food-angle-rectangle-orange-thumbnail.png"
+                      alt="">
+                    <% } %>
+              </div>
+              <p><%-dish.time%> mins</p>
+              <a href="/dish/<%= dish._id %>" class="btn btn-primary">Go To Recipie</a>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <!-- <br> -->
+      <!-- <br> -->
+
+
+      <div>
+        <div class="d-flex align-items-center justify-content-end">
+          <button type="button" class="btn position-fixed p-2" style="border-radius:50%; bottom: 20px; right: 10px;"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions">
+            <img src="https://cdn-icons-png.flaticon.com/128/2312/2312258.png" height="50px" width="50px" alt="">
+            <!-- <span
+              class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+              <span class="visually-hidden">New alerts</span>
+            </span> -->
+          </button>
+        </div>
+
+        <div class="offcanvas offcanvas-start" style="background-color: #8BB8B8;" data-bs-scroll="true" tabindex="-1"
+          id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div class="offcanvas-header">
+            <h6 class="offcanvas-title text-center" id="offcanvasWithBothOptionsLabel">Discussion Forum</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="chatbox p-2 bg-success-subtle"
+              style="height: 450px;  background-color: #8BB8B8; border-radius: 8px; overflow-y: auto ;">
+              <p class="chat"><strong>Ram :</strong> Hey how's the Paneer Tikka?</p>
+              <p class="chat"><strong>Shyam :</strong> Preety Good</p>
+            </div>
+            <br>
+            <div class="d-flex gap-3 align-items-center">
+              <div>
+                <input class="px-2 py-2 mesinp" style="border-radius: 8px;" type="text" name="" id=""
+                  placeholder="Enter Message">
+              </div>
+              <div>
+                <button class="sendbtn btn btn-primary">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/chat.js"></script>

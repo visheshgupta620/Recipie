@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bag{
+    position: absolute;
+    top: 12%;
+}
+
+.links{
+    padding: 13px;
+    font-size:large;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.links:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.down{
+    position: absolute;
+    bottom: 0;
+    opacity: 0.8;
+}

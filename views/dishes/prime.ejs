@@ -1,0 +1,99 @@
+<% layout('/layout/boilerplate') -%>
+    <br><br>
+
+    <div class="card">
+        <div class="card-body text-center bg-success-subtle">
+            <strong>Want perks ?</strong> Join as a prime member
+            <br>
+            <% if(!currentuser){ %>
+            <div>
+                Or continue for <a href="/register" style="text-decoration: none;">FREE</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <br><br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item" style="background-color: beige;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-success-subtle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Membership-option-1
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <br>
+                    More Recipies
+                    <br>
+                    Gain access to the recorded videos
+                    <br>
+                    For just <strong> 100/- INR</strong>
+                    <br><br>
+                    <button class="btn membershipbuy btn-primary border border-black min" amount="100">Pay Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item" style="background-color: beige;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-success-subtle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Membership-option-2
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>24/7 support</strong>
+                    <br>
+                    More Recipies
+                    <br>
+                    Gain access to the recorded videos
+                    <br>
+                    Regular checkups
+                    <br>
+                    Get access to contact lists of professional chefs
+                    <br>
+                    More and more
+                    <br>
+                    For just <strong> 250/- INR</strong>
+                    <br><br>
+                    <button class="btn membershipbuy btn-primary border border-black mid" amount="250">Pay Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item" style="background-color: beige;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-success-subtle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Membership-option-3
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>24/7 support</strong>
+                    <br>
+                    More Recipies
+                    <br>
+                    Gain access to the recorded videos
+                    <br>
+                    Regular checkups
+                    <br>
+                    Get access to contact lists of professional chefs
+                    <br>
+                    You can order any food item once every month, and the bill will be on us
+                    <br>
+                    Get offers, coupons, in your favourite food related apps
+                    <br>
+                    Gets access to every event held by our team
+                    <br>
+                    For just <strong> 500/- INR</strong>
+                    <br><br>
+                    <button class="btn membershipbuy btn-primary border border-black max" amount="500">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <script src="/js/paymentapi.js"></script>
